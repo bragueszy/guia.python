@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RESUMO PAC - Guia Completo para o Exame</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,sans-serif; background:#f8f9fb; color:#1a1d23; line-height:1.6}
+  .cover{background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 50%,#2563eb 100%); color:white; padding:56px 40px; text-align:center; position:relative; overflow:hidden}
+  .cover::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent 60%)}
+  .cover > *{position:relative; z-index:1}
+  .badge{display:inline-block; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.25); padding:6px 14px; border-radius:999px; font-size:12px; letter-spacing:0.08em; font-weight:700; margin-bottom:18px}
+  .cover h1{font-size:42px; font-weight:800; line-height:1.05; margin-bottom:12px}
+  .cover h1 span{color:#93c5fd}
+  .cover p.sub{font-size:17px; opacity:0.92; max-width:680px; margin:0 auto 22px}
+  .cover-stats{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:18px}
+  .stat{background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.18); padding:10px 16px; border-radius:12px; min-width:110px}
+  .stat strong{font-size:18px; display:block}
+  .stat span{font-size:11px; opacity:0.85; text-transform:uppercase; letter-spacing:0.06em}
+  .container{max-width:920px; margin:0 auto; padding:0 20px}
+  .toc{background:white; border-radius:16px; padding:28px; margin:-30px auto 30px; box-shadow:0 10px 40px rgba(0,0,0,0.08); border:1px solid #e5e7eb; max-width:920px; position:relative; z-index:2}
+  .toc h3{font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:#64748b; margin-bottom:14px}
+  .toc-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px}
+  .toc-item{display:flex; gap:12px; align-items:center; padding:12px 14px; border-radius:10px; background:#f8fafc; border:1px solid #e2e8f0; text-decoration:none; color:inherit; transition:all 0.15s}
+  .toc-item:hover{background:#eff6ff; border-color:#bfdbfe; transform:translateY(-1px)}
+  .toc-num{width:34px; height:34px; border-radius:9px; display:grid; place-items:center; font-weight:800; font-size:14px; color:white; flex-shrink:0}
+  .c1{background:#2563eb} .c2{background:#7c3aed} .c3{background:#db2777} .c4{background:#ea580c} .c5{background:#059669} .c6{background:#0891b2}
+  .toc-item b{font-size:13px; display:block; line-height:1.2}
+  .toc-item small{font-size:11px; color:#64748b}
+  
+  .chapter{background:white; border-radius:16px; border:1px solid #e5e7eb; overflow:hidden; margin-bottom:22px; box-shadow:0 4px 20px rgba(0,0,0,0.04)}
+  .ch-head{padding:22px 26px; display:flex; gap:16px; align-items:center; border-bottom:1px solid #f1f5f9}
+  .ch-icon{width:48px; height:48px; border-radius:12px; display:grid; place-items:center; font-size:22px; color:white; flex-shrink:0}
+  .ch-head h2{font-size:18px; font-weight:800; line-height:1.2}
+  .ch-head h2 span{font-weight:400; font-size:13px; color:#64748b; display:block; margin-top:2px}
+  .ch-body{padding:22px 26px}
+  
+  h4{font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:#334155; margin:20px 0 10px; display:flex; align-items:center; gap:8px}
+  h4::before{content:""; width:4px; height:16px; border-radius:999px; background:currentColor; opacity:0.9}
+  .tip{background:#f0fdf4; border:1px solid #bbf7d0; border-left:4px solid #16a34a; padding:12px 14px; border-radius:10px; font-size:13px; margin:12px 0}
+  .warn{background:#fffbeb; border:1px solid #fde68a; border-left:4px solid #d97706; padding:12px 14px; border-radius:10px; font-size:13px; margin:12px 0}
+  .err{background:#fef2f2; border:1px solid #fecaca; border-left:4px solid #dc2626; padding:12px 14px; border-radius:10px; font-size:13px; margin:12px 0}
+  .blue{background:#eff6ff; border:1px solid #bfdbfe; border-left:4px solid #2563eb; padding:12px 14px; border-radius:10px; font-size:13px; margin:12px 0}
+  
+  pre{background:#0f172a; color:#e2e8f0; padding:14px 16px; border-radius:10px; font-family:'JetBrains Mono',monospace; font-size:12.5px; line-height:1.55; overflow-x:auto; margin:10px 0; border:1px solid #1e293b}
+  pre .c{color:#94a3b8} pre .k{color:#f472b6} pre .s{color:#7dd3fc} pre .f{color:#a78bfa} pre .n{color:#fbbf24}
+  code.inline{background:#f1f5f9; border:1px solid #e2e8f0; padding:1px 6px; border-radius:6px; font-family:'JetBrains Mono',monospace; font-size:12px}
+  
+  table{width:100%; border-collapse:collapse; font-size:13px; margin:10px 0; border:1px solid #e2e8f0; border-radius:10px; overflow:hidden}
+  th{background:#f8fafc; text-align:left; padding:10px 12px; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:#475569; border-bottom:1px solid #e2e8f0}
+  td{padding:9px 12px; border-bottom:1px solid #f1f5f9; vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .card{border:1px solid #e2e8f0; border-radius:12px; padding:14px; background:#f8fafc}
+  .card b{font-size:13px} .card p{font-size:12.5px; color:#475569; margin-top:4px}
+  .tag{display:inline-block; font-size:10px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:3px 8px; border-radius:999px; margin-bottom:6px}
+  .formula{display:flex; gap:10px; flex-wrap:wrap; margin:8px 0}
+  .pill{background:#f1f5f9; border:1px solid #e2e8f0; padding:6px 10px; border-radius:999px; font-size:12px; font-family:'JetBrains Mono',monospace}
+  
+  .steps{counter-reset:step; list-style:none; padding:0}
+  .steps li{counter-increment:step; display:flex; gap:12px; padding:10px 0; border-bottom:1px dashed #e2e8f0; font-size:13px}
+  .steps li:last-child{border-bottom:none}
+  .steps li::before{content:counter(step); width:28px; height:28px; border-radius:999px; background:#0f172a; color:white; display:grid; place-items:center; font-weight:800; font-size:12px; flex-shrink:0; margin-top:1px}
+  
+  .footer{background:#0f172a; color:#cbd5e1; padding:36px 20px; text-align:center; margin-top:30px; border-radius:16px}
+  .btn{display:inline-block; background:white; color:#0f172a; padding:10px 18px; border-radius:999px; font-weight:700; font-size:13px; text-decoration:none; margin:6px}
+  .btn-dark{background:#2563eb; color:white}
+  
+  @media(max-width:640px){ .cover h1{font-size:32px} .grid2{grid-template-columns:1fr} .ch-body{padding:18px} }
+  @media print{ body{background:white} .cover{break-after:avoid} .chapter{break-inside:avoid} }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="badge">📚 PROGRAMAÇÃO E ALGORITMOS EM CIÊNCIA — UA</div>
+  <h1>Como resolver <span>TUDO</span><br>sem decorar nada</h1>
+  <p class="sub">Guia de estudo prático das 6 aulas: do zero aos ficheiros. Com regras de ouro, receitas de resolução e erros que te fazem chumbar.</p>
+  <div class="cover-stats">
+    <div class="stat"><strong>6 aulas</strong><span>Resumidas</span></div>
+    <div class="stat"><strong>30+ exemplos</strong><span>Copia & cola</span></div>
+    <div class="stat"><strong>1 método</strong><span>Para qualquer exercício</span></div>
+    <div class="stat"><strong>100% prático</strong><span>Sem blá blá</span></div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc container">
+  <h3>📑 O que vais encontrar — clica para saltar</h3>
+  <div class="toc-grid">
+    <a class="toc-item" href="#aula1"><div class="toc-num c1">1</div><div><b>Bases do Python</b><small>Valores, variáveis, operadores, I/O</small></div></a>
+    <a class="toc-item" href="#aula2"><div class="toc-num c2">2</div><div><b>Lógica & Decisões</b><small>if / elif / else, booleanos</small></div></a>
+    <a class="toc-item" href="#aula3"><div class="toc-num c3">3</div><div><b>Funções</b><small>def, return, escopo, lambda</small></div></a>
+    <a class="toc-item" href="#aula4"><div class="toc-num c4">4</div><div><b>Ciclos / Interação</b><small>while, for, range, break</small></div></a>
+    <a class="toc-item" href="#aula5"><div class="toc-num c5">5</div><div><b>Sequências</b><small>listas, strings, tuplos</small></div></a>
+    <a class="toc-item" href="#aula6"><div class="toc-num c6">6</div><div><b>Ficheiros</b><small>open, ficheiros, exceções</small></div></a>
+  </div>
+  <div class="blue" style="margin-top:16px; margin-bottom:0">
+    <b>🧠 Método universal para resolver qualquer exercício:</b> 1) Lê o enunciado e sublinha <i>input → processamento → output</i> • 2) Escolhe a estrutura (decisão? ciclo? função? lista?) • 3) Escreve 3 exemplos à mão • 4) Traduz para código • 5) Testa com caso limite (0, lista vazia, negativo).
+  </div>
+</div>
+
+<div class="container">
+
+<!-- AULA 1 -->
+<div class="chapter" id="aula1">
+  <div class="ch-head">
+    <div class="ch-icon c1">🐍</div>
+    <h2>Aula 1 — Bases do Python <span>Valores, tipos, variáveis, operadores e E/S • A fundação de tudo</span></h2>
+  </div>
+  <div class="ch-body">
+
+    <h4>O essencial em 30 segundos</h4>
+    <table>
+      <tr><th>Tipo</th><th>Exemplo</th><th>Para que serve</th></tr>
+      <tr><td><code class="inline">int</code></td><td><code class="inline">42, -3</code></td><td>Contar, índices</td></tr>
+      <tr><td><code class="inline">float</code></td><td><code class="inline">3.14, 2.5e-3</code></td><td>Médias, contas reais. Cuidado com <code class="inline">0.1+0.2 != 0.3</code></td></tr>
+      <tr><td><code class="inline">str</code></td><td><code class="inline">'ola', "42"</code></td><td>Texto. Input vem sempre como <code class="inline">str</code>!</td></tr>
+      <tr><td><code class="inline">bool</code></td><td><code class="inline">True / False</code></td><td>Decisões. <code class="inline">0, "", [], None</code> → False</td></tr>
+    </table>
+
+    <div class="tip"><b>✅ Regra de ouro 1:</b> Tudo o que vem de <code class="inline">input()</code> é string. Se precisas de número, converte: <code class="inline">int(input())</code> ou <code class="inline">float(input())</code>.</div>
+
+<pre><span class="c"># Conversões que tens de saber</span>
+<span class="k">int</span>(<span class="s">"33"</span>)      <span class="c"># 33</span>
+<span class="k">float</span>(<span class="s">"3.14"</span>)    <span class="c"># 3.14</span>
+<span class="k">str</span>(42)          <span class="c"># "42" - para juntar com print</span>
+<span class="k">int</span>(2.78)        <span class="c"># 2  (trunca, não arredonda!)</span>
+</pre>
+
+    <h4>Variáveis — como o Python guarda coisas</h4>
+    <div class="grid2">
+      <div class="card"><span class="tag" style="background:#dbeafe;color:#1e40af">Faz</span><b>nome = "Maria", idade = 21</b><p>Nomes começam por letra ou _. Usa <code class="inline">_</code> para separar: <code class="inline">nota_final</code>. Atribuição simultânea: <code class="inline">a,b = 1,2</code></p></div>
+      <div class="card"><span class="tag" style="background:#fee2e2;color:#991b1b">Não faças</span><b>76trombones = "x"</b><p>Não pode começar por número. Não uses palavras reservadas: <code class="inline">if, for, def, class</code>...</p></div>
+    </div>
+
+<pre><span class="c"># Atalhos (augmented assignment)</span>
+n += 1   <span class="c"># n = n + 1</span>
+x *= 2   <span class="c"># x = x * 2</span>
+n %= 3   <span class="c"># resto da divisão</span>
+</pre>
+
+    <h4>Operadores — ordem importa!</h4>
+    <div class="formula">
+      <span class="pill">1º ( )</span> <span class="pill">2º **</span> <span class="pill">3º * / // %</span> <span class="pill">4º + -</span>
+    </div>
+    <table>
+      <tr><th>Operador</th><th>Exemplo</th><th>Resultado</th><th>Armadilha</th></tr>
+      <tr><td><code class="inline">/</code></td><td><code class="inline">5/2</code></td><td><code class="inline">2.5</code> (sempre float)</td><td></td></tr>
+      <tr><td><code class="inline">//</code></td><td><code class="inline">5//2</code></td><td><code class="inline">2</code> (divisão inteira)</td><td><code class="inline">-3//2 = -2</code></td></tr>
+      <tr><td><code class="inline">%</code></td><td><code class="inline">5%2</code></td><td><code class="inline">1</code> (resto)</td><td>Usa para par: <code class="inline">n%2==0</code></td></tr>
+      <tr><td><code class="inline">**</code></td><td><code class="inline">2**3</code></td><td><code class="inline">8</code></td><td></td></tr>
+      <tr><td><code class="inline">+</code> em str</td><td><code class="inline">"a"+"b"</code></td><td><code class="inline">"ab"</code></td><td></td></tr>
+      <tr><td><code class="inline">*</code> em str</td><td><code class="inline">"ah"*3</code></td><td><code class="inline">"ahahah"</code></td><td></td></tr>
+    </table>
+
+    <h4>Entrada e saída — o que vai cair no exame</h4>
+<pre><span class="c"># INPUT sempre com conversão</span>
+nome = <span class="k">input</span>(<span class="s">"Nome? "</span>)
+idade = <span class="k">int</span>(<span class="k">input</span>(<span class="s">"Idade? "</span>))
+nota = <span class="k">float</span>(<span class="k">input</span>(<span class="s">"Nota? "</span>))
+
+<span class="c"># OUTPUT - 3 formas</span>
+<span class="k">print</span>(<span class="s">"Olá"</span>, nome)
+<span class="k">print</span>(<span class="s">f"Idade: {idade} anos"</span>)  <span class="c"># f-string é a mais fácil</span>
+<span class="k">print</span>(<span class="s">"a={} b={}"</span>.<span class="k">format</span>(a,b))
+
+<span class="c"># Matemática</span>
+<span class="k">import</span> math
+math.sqrt(2)   <span class="c"># raiz</span>
+math.pi        <span class="c"># 3.1415...</span>
+math.sin(math.radians(45))
+</pre>
+
+    <div class="warn"><b>⚠️ Erro clássico:</b> Esquecer <code class="inline">print()</code> em modo script. No interativo aparece sozinho, no ficheiro <code class="inline">.py</code> não. Sem print = sem output = zero.</div>
+
+    <div class="err"><b>❌ Bug típico:</b> <code class="inline">input() + 5</code> → TypeError, porque é <code class="inline">"5" + 5</code>. Corrige: <code class="inline">int(input()) + 5</code></div>
+  </div>
+</div>
+
+<!-- AULA 2 -->
+<div class="chapter" id="aula2">
+  <div class="ch-head">
+    <div class="ch-icon c2">🔀</div>
+    <h2>Aula 2 — Lógica & Decisões <span>Booleanos, operadores e if/elif/else • Onde 90% dos alunos tropeçam</span></h2>
+  </div>
+  <div class="ch-body">
+
+    <h4>Booleanos — só há 2 valores</h4>
+    <table>
+      <tr><th>Operador</th><th>Significado</th><th>Exemplo</th></tr>
+      <tr><td><code class="inline">==</code></td><td>igual?</td><td><code class="inline">5==5 → True</code></td></tr>
+      <tr><td><code class="inline">!=</code></td><td>diferente?</td><td><code class="inline">5!=3 → True</code></td></tr>
+      <tr><td><code class="inline">&gt; &lt; &gt;= &lt;=</code></td><td>comparar</td><td><code class="inline">10&gt;=10 → True</code></td></tr>
+      <tr><td><code class="inline">and</code></td><td>E (os dois têm de ser True)</td><td><code class="inline">x&gt;0 and x&lt;10</code></td></tr>
+      <tr><td><code class="inline">or</code></td><td>OU (basta um)</td><td><code class="inline">x==0 or y==0</code></td></tr>
+      <tr><td><code class="inline">not</code></td><td>NÃO (inverte)</td><td><code class="inline">not True → False</code></td></tr>
+    </table>
+
+    <div class="tip"><b>💡 Truque Python:</b> Podes escrever <code class="inline">0 &lt;= x &lt; 10</code> em vez de <code class="inline">x&gt;=0 and x&lt;10</code>. Mais legível e cai bem no exame.</div>
+
+    <h4>Ordem de avaliação — sem decorar, usa parênteses!</h4>
+    <div class="formula">
+      <span class="pill">Aritméticos → Relacionais → not → and → or</span>
+    </div>
+<pre><span class="c"># Em caso de dúvida, mete parênteses:</span>
+x &lt;= 1 + 2*y**3 <span class="k">or</span> n != 0 <span class="k">and not</span> 1/n &lt;= y
+<span class="c"># Melhor assim:</span>
+(x &lt;= (1 + 2*(y**3))) <span class="k">or</span> (n != 0 <span class="k">and not</span> (1/n &lt;= y))
+</pre>
+
+    <div class="warn"><b>⚠️ Short-circuit (avaliação preguiçosa):</b> <code class="inline">and</code> e <code class="inline">or</code> só avaliam o 2º se precisarem. Usa a teu favor para evitar divisão por zero:<br>
+      <code class="inline">n != 0 and 1/n &gt; 2</code> ✅ seguro &nbsp; vs &nbsp; <code class="inline">1/n &gt; 2 and n != 0</code> ❌ dá erro se n==0
+    </div>
+
+    <h4>As 3 formas de IF — receita visual</h4>
+<pre><span class="c"># 1) Só IF - faz ou não faz</span>
+<span class="k">if</span> nota &gt;= 10:
+    <span class="k">print</span>(<span class="s">"Aprovado"</span>)
+
+<span class="c"># 2) IF-ELSE - ou um ou outro (escolha binária)</span>
+<span class="k">if</span> n % 2 == 0:
+    <span class="k">print</span>(<span class="s">"par"</span>)
+<span class="k">else</span>:
+    <span class="k">print</span>(<span class="s">"ímpar"</span>)
+
+<span class="c"># 3) IF-ELIF-ELSE - várias faixas (notas, idades, preços)</span>
+<span class="k">if</span> media &lt; 10:
+    m = <span class="s">"Insuficiente"</span>
+<span class="k">elif</span> media &lt; 14:
+    m = <span class="s">"Suficiente"</span>
+<span class="k">elif</span> media &lt; 18:
+    m = <span class="s">"Bom"</span>
+<span class="k">else</span>:
+    m = <span class="s">"Excelente"</span>
+</pre>
+
+    <div class="blue"><b>🧩 Como resolver qualquer if:</b> 1) Lista todos os casos possíveis → 2) Ordena do mais específico para o mais geral → 3) Usa <code class="inline">elif</code> para não repetir testes. Se usares só <code class="inline">if</code> soltos, podes executar 2 blocos ao mesmo tempo por engano.</div>
+
+    <h4>Operador ternário — para poupar linhas</h4>
+<pre>msg = <span class="s">"par"</span> <span class="k">if</span> n%2==0 <span class="k">else</span> <span class="s">"ímpar"</span>
+<span class="c"># lê-se: "par se n for par, senão ímpar"</span>
+preco_final = preco * 0.9 <span class="k">if</span> cliente_vip <span class="k">else</span> preco
+</pre>
+
+    <h4>Simplificar IFs aninhados — truque de exame</h4>
+    <table>
+      <tr><th>Antes (confuso)</th><th>Depois (limpo)</th></tr>
+      <tr><td><code class="inline">if a>=10: if b&lt;3: R=2 else: R=3 else: R=1</code></td><td><code class="inline">if a&lt;10: R=1 elif b&lt;3: R=2 else: R=3</code></td></tr>
+    </table>
+    <div class="tip"><b>✅ Leis para simplificar:</b> <code class="inline">not (A and B) = (not A) or (not B)</code> &nbsp; | &nbsp; <code class="inline">not (A or B) = (not A) and (not B)</code> &nbsp; | &nbsp; <code class="inline">x>y = not x&lt;=y</code></div>
+
+    <div class="err"><b>❌ Erros mortais:</b> 1) Usar <code class="inline">=</code> em vez de <code class="inline">==</code> → <code class="inline">if x = 5:</code> dá SyntaxError &nbsp; 2) Esquecer os <code class="inline">:</code> dois pontos &nbsp; 3) Indentação errada — tudo dentro do if tem de estar recuado 4 espaços.</div>
+  </div>
+</div>
+
+<!-- AULA 3 -->
+<div class="chapter" id="aula3">
+  <div class="ch-head">
+    <div class="ch-icon c3">🧩</div>
+    <h2>Aula 3 — Funções <span>Definir, chamar, parâmetros e return • O segredo para não repetir código</span></h2>
+  </div>
+  <div class="ch-body">
+
+    <h4>Definição vs Chamada — não confundas!</h4>
+    <div class="grid2">
+      <div class="card" style="border-left:4px solid #db2777"><b>Definir = guardar receita</b><p>Não executa nada, só memoriza. Tem de vir <b>antes</b> da chamada.</p></div>
+      <div class="card" style="border-left:4px solid #059669"><b>Chamar = cozinhar</b><p>Aí sim o código corre. Podes chamar 100x.</p></div>
+    </div>
+
+<pre><span class="k">def</span> <span class="f">hms2sec</span>(h, m, s):          <span class="c"># CABEÇALHO: def nome(parâmetros):</span>
+    sec = (h*60 + m)*60 + s    <span class="c"># CORPO indentado</span>
+    <span class="k">return</span> sec                 <span class="c"># devolve resultado</span>
+
+<span class="c"># Chamadas (só depois da definição!)</span>
+<span class="k">print</span>(hms2sec(1,30,0))     <span class="c"># 5400</span>
+total = hms2sec(0, 2, 15)
+</pre>
+
+    <h4>Return vs Print — a diferença que vale metade da nota</h4>
+    <table>
+      <tr><th></th><th><code class="inline">return</code></th><th><code class="inline">print()</code></th></tr>
+      <tr><td><b>O que faz</b></td><td>Devolve valor para usar no código</td><td>Mostra no ecrã (efeito)</td></tr>
+      <tr><td><b>Usa quando</b></td><td>Queres calcular algo</td><td>Queres mostrar algo ao utilizador</td></tr>
+      <tr><td><b>Sem return?</b></td><td>Devolve <code class="inline">None</code></td><td></td></tr>
+    </table>
+<pre><span class="k">def</span> <span class="f">quadrado</span>(x):
+    <span class="k">return</span> x**2        <span class="c"># posso fazer quadrado(3)+1 = 10</span>
+
+<span class="k">def</span> <span class="f">diz_ola</span>():
+    <span class="k">print</span>(<span class="s">"Olá!"</span>)     <span class="c"># void: não devolve nada útil</span>
+</pre>
+
+    <div class="warn"><b>⚠️ Se a tua função calcula mas não consegues usar o resultado fora dela, falta-te o <code class="inline">return</code>.</b> É o erro nº1 no exame.</div>
+
+    <h4>Parâmetros e variáveis locais/globais</h4>
+<pre>total = 0  <span class="c"># global</span>
+
+<span class="k">def</span> <span class="f">soma</span>(a, b):          <span class="c"># a,b são locais (só existem dentro)</span>
+    total = a + b      <span class="c"># este total é OUTRO, local</span>
+    <span class="k">return</span> total
+
+<span class="k">print</span>(soma(10,20))   <span class="c"># 30</span>
+<span class="k">print</span>(total)         <span class="c"># 0 - o global não mudou!</span>
+</pre>
+    <div class="tip"><b>✅ Regra de escopo:</b> Variável criada dentro da função é <b>local</b> (morre no fim). Parâmetros também são locais. Para alterar global precisas de <code class="inline">global</code> — mas no exame evita, faz antes <code class="inline">return</code>.</div>
+
+    <h4>Argumentos por palavra-chave e defaults</h4>
+<pre><span class="k">def</span> <span class="f">info</span>(nome, idade=35):   <span class="c"># idade é opcional</span>
+    <span class="k">print</span>(<span class="s">f"Nome: {nome}, Idade: {idade}"</span>)
+
+info(<span class="s">"Miki"</span>, 50)          <span class="c"># posicional</span>
+info(<span class="s">"Miki"</span>)              <span class="c"># usa default 35</span>
+info(idade=50, nome=<span class="s">"Miki"</span>) <span class="c"># por nome, ordem não importa</span>
+</pre>
+
+    <h4>Lambda — função de uma linha</h4>
+<pre>add = <span class="k">lambda</span> a, b: a + b   <span class="c"># igual a def add(a,b): return a+b</span>
+dobro = <span class="k">lambda</span> x: x*2
+
+<span class="c"># Útil quando outra função pede uma função como argumento:</span>
+<span class="k">sorted</span>(nomes, <span class="k">key</span>=<span class="k">lambda</span> s: len(s))  <span class="c"># ordena por tamanho</span>
+</pre>
+
+    <div class="blue"><b>🧠 Receita para criar função no exame:</b> 1) Nome verboso: <code class="inline">calcula_media</code>, <code class="inline">eh_primo</code> &nbsp; 2) Lista o que entra (parâmetros) e o que sai (return) &nbsp; 3) Escreve 2 testes à mão: <code class="inline">assert calcula_media([10,20]) == 15</code> &nbsp; 4) Escreve o corpo.</div>
+  </div>
+</div>
+
+<!-- AULA 4 -->
+<div class="chapter" id="aula4">
+  <div class="ch-head">
+    <div class="ch-icon c4">🔁</div>
+    <h2>Aula 4 — Ciclos / Interação <span>while e for • Como repetir sem copiar-colar</span></h2>
+  </div>
+  <div class="ch-body">
+
+    <h4>Quando usar cada um?</h4>
+    <div class="grid2">
+      <div class="card" style="background:#fff7ed; border-color:#fed7aa"><b>🔄 while — quando NÃO sabes quantas vezes</b><p>Ex: ler até o utilizador escrever "fim", validar input, jogo. <b>Precisa</b> de condição que eventualmente fique False, senão é infinito.</p></div>
+      <div class="card" style="background:#f0fdf4; border-color:#86efac"><b>🔂 for — quando SABES onde iterar</b><p>Ex: percorrer lista, string, range(10). É o mais usado e seguro. Nunca é infinito.</p></div>
+    </div>
+
+<pre><span class="c"># WHILE clássico</span>
+n = 3
+<span class="k">while</span> n &gt; 0:
+    <span class="k">print</span>(n)
+    n -= 1          <span class="c"># ATENÇÃO: sem isto, loop infinito!</span>
+<span class="k">print</span>(<span class="s">"Go!"</span>)
+
+<span class="c"># FOR clássico</span>
+<span class="k">for</span> n <span class="k">in</span> [3,1,9]:
+    <span class="k">print</span>(n)
+
+<span class="c"># FOR com range (o mais comum no exame)</span>
+<span class="k">for</span> i <span class="k">in</span> <span class="k">range</span>(4):      <span class="c"># 0,1,2,3</span>
+    <span class="k">print</span>(i)
+<span class="k">for</span> i <span class="k">in</span> <span class="k">range</span>(1,10,2): <span class="c"># 1,3,5,7,9 (ímpares)</span>
+    <span class="k">print</span>(i)
+</pre>
+
+    <h4>range() — decora esta tabela</h4>
+    <table>
+      <tr><th>Chamada</th><th>Gera</th><th>Uso típico</th></tr>
+      <tr><td><code class="inline">range(4)</code></td><td>0,1,2,3</td><td>Percorrer 4 vezes</td></tr>
+      <tr><td><code class="inline">range(1,5)</code></td><td>1,2,3,4</td><td>De 1 a 4</td></tr>
+      <tr><td><code class="inline">range(5,0,-1)</code></td><td>5,4,3,2,1</td><td>Contagem decrescente</td></tr>
+      <tr><td><code class="inline">range(0,10,2)</code></td><td>0,2,4,6,8</td><td>Pares</td></tr>
+    </table>
+    <div class="warn"><b>⚠️ range para no stop-1:</b> <code class="inline">range(1,5)</code> <b>não</b> inclui o 5. E só aceita inteiros.</div>
+
+    <h4>break e continue — os comandos de fuga</h4>
+<pre><span class="c"># BREAK: sai imediatamente do ciclo (loop-e-meio)</span>
+<span class="k">while True</span>:
+    linha = <span class="k">input</span>(<span class="s">"Texto? (escreve 'fim') "</span>)
+    <span class="k">if</span> linha == <span class="s">"fim"</span>:
+        <span class="k">break</span>        <span class="c"># salta para fora do while</span>
+    <span class="k">print</span>(linha)
+
+<span class="c"># CONTINUE: salta para a próxima iteração</span>
+<span class="k">for</span> n <span class="k">in</span> <span class="k">range</span>(10):
+    <span class="k">if</span> n % 2 == 1:
+        <span class="k">continue</span>   <span class="c"># ignora ímpares</span>
+    <span class="k">print</span>(n)       <span class="c"># só pares</span>
+</pre>
+
+    <div class="tip"><b>✅ Padrões que caem sempre:</b><br>
+      • Somar/acumular: <code class="inline">soma=0; for x in lista: soma+=x</code><br>
+      • Contar: <code class="inline">cont=0; for x in lista: if cond: cont+=1</code><br>
+      • Procurar: <code class="inline">for x in lista: if x==alvo: print("achei"); break</code><br>
+      • Validar input: <code class="inline">while nota&lt;0 or nota&gt;20: nota=float(input("Nota?"))</code>
+    </div>
+
+    <h4>Loop com else — evita!</h4>
+    <div class="warn"><b>⚠️ O <code class="inline">else</code> do for/while só corre se NÃO houver <code class="inline">break</code>.</b> É confuso e raro no exame. Se vires, lê como: "se não interrompi, faz isto no fim". Na dúvida, não uses — faz um <code class="inline">if</code> depois do ciclo.</div>
+
+    <div class="err"><b>❌ Loop infinito:</b> Esquecer de atualizar a variável do <code class="inline">while</code>. Sempre pergunta: "o que faz esta condição ficar False?" Se não houver resposta, falta o <code class="inline">i+=1</code> ou <code class="inline">break</code>.</div>
+  </div>
+</div>
+
+<!-- AULA 5 -->
+<div class="chapter" id="aula5">
+  <div class="ch-head">
+    <div class="ch-icon c5">📦</div>
+    <h2>Aula 5 — Sequências <span>Listas, strings e tuplos • 50% do exame está aqui</span></h2>
+  </div>
+  <div class="ch-body">
+
+    <h4>As 3 sequências — qual usar?</h4>
+    <table>
+      <tr><th>Tipo</th><th>Símbolo</th><th>Mutável?</th><th>Quando usar</th></tr>
+      <tr><td><b>Lista</b></td><td><code class="inline">[1,2,3]</code></td><td>✅ Sim</td><td>Coleção que muda: notas, nomes, filas</td></tr>
+      <tr><td><b>String</b></td><td><code class="inline">"ola"</code></td><td>❌ Não</td><td>Texto</td></tr>
+      <tr><td><b>Tuplo</b></td><td><code class="inline">(1,2) ou 1,2</code></td><td>❌ Não</td><td>Par imutável: coordenada (x,y), chave de dicionário</td></tr>
+    </table>
+
+    <h4>Indexação e Slicing — o coração</h4>
+<pre>nums = [10, 20, 30, 40]
+<span class="c"># índices:   0    1    2    3     ou   -4  -3  -2  -1</span>
+nums[0]     <span class="c"># 10 (primeiro)</span>
+nums[-1]    <span class="c"># 40 (último - truque de ouro!)</span>
+nums[1:3]   <span class="c"># [20,30]  (do 1 até antes do 3)</span>
+nums[:2]    <span class="c"># [10,20]  (do início)</span>
+nums[3:]    <span class="c"># [40]     (até ao fim)</span>
+nums[:]     <span class="c"># cópia completa!</span>
+nums[::-1]  <span class="c"># [40,30,20,10] invertida</span>
+nums[::2]   <span class="c"># [10,30] de 2 em 2</span>
+</pre>
+    <div class="tip"><b>✅ Regra slicing:</b> <code class="inline">lista[inicio:fim:passo]</code> — <code class="inline">fim</code> nunca entra. Se omitires, vai até ao limite. Negativo conta do fim.</div>
+
+<pre><span class="c"># Strings igual às listas</span>
+fruta = <span class="s">"banana"</span>
+fruta[0]      <span class="c"># "b"</span>
+fruta[1:4]    <span class="c"># "ana"</span>
+fruta[::-1]   <span class="c"># "ananab" (inverter - cai no exame!)</span>
+<span class="k">len</span>(fruta)   <span class="c"># 6</span>
+<span class="s">"ana"</span> <span class="k">in</span> fruta <span class="c"># True - substring?</span>
+</pre>
+
+    <h4>Percorrer — 4 formas (sabe as 2 primeiras)</h4>
+<pre>frutas = [<span class="s">'banana'</span>,<span class="s">'pera'</span>,<span class="s">'laranja'</span>]
+
+<span class="c"># 1) Direto (preferida)</span>
+<span class="k">for</span> f <span class="k">in</span> frutas:
+    <span class="k">print</span>(f)
+
+<span class="c"># 2) Com índice (quando precisas da posição)</span>
+<span class="k">for</span> i <span class="k">in</span> <span class="k">range</span>(<span class="k">len</span>(frutas)):
+    <span class="k">print</span>(i, frutas[i])
+
+<span class="c"># 3) Com enumerate (elegante)</span>
+<span class="k">for</span> i, f <span class="k">in</span> <span class="k">enumerate</span>(frutas):
+    <span class="k">print</span>(i, f)
+
+<span class="c"># 4) While (evita, mas pode cair)</span>
+i=0
+<span class="k">while</span> i &lt; <span class="k">len</span>(frutas):
+    <span class="k">print</span>(frutas[i]); i+=1
+</pre>
+
+    <h4>Operações que funcionam em todas</h4>
+    <div class="formula">
+      <span class="pill">+ concatena</span> <span class="pill">* repete</span> <span class="pill">in / not in</span> <span class="pill">len(), sum(), min(), max()</span>
+    </div>
+<pre>[1,2] + [3]      <span class="c"># [1,2,3]</span>
+[0]*3            <span class="c"># [0,0,0] - inicializar lista</span>
+<span class="k">sum</span>([1,2,3])      <span class="c"># 6</span>
+<span class="k">min</span>(<span class="s">"banana"</span>)    <span class="c"># "a" (ordem alfabética)</span>
+</pre>
+
+    <h4>Listas são mutáveis — métodos essenciais</h4>
+    <table>
+      <tr><th>Método</th><th>O que faz</th><th>Exemplo</th></tr>
+      <tr><td><code class="inline">append(x)</code></td><td>adiciona ao fim</td><td><code class="inline">lst.append(3) → [1,2,3]</code></td></tr>
+      <tr><td><code class="inline">pop()</code></td><td>tira do fim e devolve</td><td><code class="inline">x=lst.pop()</code></td></tr>
+      <tr><td><code class="inline">pop(i)</code></td><td>tira da posição i</td><td><code class="inline">lst.pop(0)</code></td></tr>
+      <tr><td><code class="inline">insert(i,x)</code></td><td>insere em i</td><td><code class="inline">lst.insert(1,99)</code></td></tr>
+      <tr><td><code class="inline">extend(lista)</code></td><td>junta outra lista</td><td><code class="inline">lst.extend([4,5])</code></td></tr>
+      <tr><td><code class="inline">remove(x)</code></td><td>remove 1ª ocorrência</td><td><code class="inline">lst.remove(2)</code></td></tr>
+      <tr><td><code class="inline">sort() / reverse()</code></td><td>ordena / inverte</td><td><code class="inline">lst.sort()</code></td></tr>
+      <tr><td><code class="inline">count(x) / index(x)</code></td><td>conta / posição</td><td><code class="inline">lst.count(1)</code></td></tr>
+    </table>
+<pre>lst = [3,1,2]
+lst.sort()      <span class="c"># [1,2,3] muda a original!</span>
+<span class="k">sorted</span>(lst)   <span class="c"># devolve nova ordenada, não muda original</span>
+</pre>
+
+    <h4>Aliasing — a armadilha mortal do exame</h4>
+    <div class="err"><b>❌ ATENÇÃO: variáveis guardam REFERÊNCIAS, não cópias!</b></div>
+<pre>a = [1,2,3]
+b = a           <span class="c"># b NÃO é cópia, é ALIAS (mesmo objeto!)</span>
+b[0] = 9
+<span class="k">print</span>(a)      <span class="c"># [9,2,3] - a também mudou! 😱</span>
+a <span class="k">is</span> b        <span class="c"># True - são o mesmo objeto</span>
+a == b        <span class="c"># True - valores iguais (mas is é mais forte)</span>
+
+<span class="c"># Como fazer cópia de verdade:</span>
+c = a[:]        <span class="c"># fatiamento</span>
+c = a.copy()    <span class="c"># método copy</span>
+c <span class="k">is</span> a        <span class="c"># False - agora são diferentes</span>
+</pre>
+    <div class="tip"><b>✅ No exame:</b> Se passas lista para função e ela faz <code class="inline">lst.append()</code>, a lista original muda! Se não queres isso, copia dentro da função: <code class="inline">r = lst[:]</code></div>
+
+<pre><span class="k">def</span> <span class="f">cresce</span>(lst):
+    r = lst[:]      <span class="c"># cópia</span>
+    r.append(3)
+    <span class="k">return</span> r        <span class="c"># original intacta</span>
+</pre>
+
+    <h4>== vs is — não confundas</h4>
+    <table>
+      <tr><th>Teste</th><th>Pergunta</th><th>Exemplo</th></tr>
+      <tr><td><code class="inline">==</code></td><td>Valores iguais?</td><td><code class="inline">[1,2]==[1,2] → True</code></td></tr>
+      <tr><td><code class="inline">is</code></td><td>Mesmo objeto?</td><td><code class="inline">[1,2] is [1,2] → False</code> (2 objetos diferentes)</td></tr>
+    </table>
+    <div class="warn"><b>⚠️ Nunca uses <code class="inline">is</code> para comparar valores, só para <code class="inline">None</code> ou identidade. No exame, <code class="inline">==</code> é quase sempre o certo.</b></div>
+
+    <h4>Strings — imutáveis mas poderosas</h4>
+<pre><span class="c"># NÃO podes fazer: fruta[0] = "A" → TypeError</span>
+<span class="c"># Tens de criar nova:</span>
+fruta = <span class="s">"banana"</span>
+nova = fruta[:-1] + <span class="s">"utan"</span>  <span class="c"># "orangutan"</span>
+
+<span class="c"># Métodos que criam nova string (original não muda):</span>
+<span class="s">"ola"</span>.upper()          <span class="c"># "OLA"</span>
+<span class="s">"  ola  "</span>.strip()      <span class="c"># "ola" (tira espaços)</span>
+<span class="s">"a,b,c"</span>.split(<span class="s">","</span>)    <span class="c"># ["a","b","c"]</span>
+<span class="s">","</span>.join([<span class="s">"a"</span>,<span class="s">"b"</span>])   <span class="c"># "a,b"</span>
+<span class="s">"ola"</span>.replace(<span class="s">"a"</span>,<span class="s">"A"</span>) <span class="c"># "olA"</span>
+<span class="s">"banana"</span>.count(<span class="s">"a"</span>) <span class="c"># 3</span>
+</pre>
+
+    <h4>Tuplos — e zip/enumerate</h4>
+<pre>t = (<span class="s">"a"</span>, <span class="s">"b"</span>, <span class="s">"c"</span>)   <span class="c"># ou "a","b","c"</span>
+t1 = (<span class="s">"a"</span>,)                  <span class="c"># 1 elemento precisa da vírgula!</span>
+<span class="k">tuple</span>(<span class="s">"ape"</span>)              <span class="c"># ("a","p","e")</span>
+
+<span class="c"># zip junta 2 listas</span>
+<span class="k">list</span>(<span class="k">zip</span>(<span class="s">"abc"</span>, [1,2,3]))  <span class="c"># [("a",1),("b",2),("c",3)]</span>
+
+<span class="c"># enumerate dá índice + valor</span>
+<span class="k">for</span> i, c <span class="k">in</span> <span class="k">enumerate</span>(<span class="s">"abc"</span>):
+    <span class="k">print</span>(i, c)  <span class="c"># 0 a, 1 b, 2 c</span>
+</pre>
+
+    <div class="blue"><b>🧠 Receita exame sequências:</b> 1) Identifica se precisas de lista (mutável) ou string (texto) &nbsp; 2) Para criar lista vazia: <code class="inline">lst=[]</code> e vai dando <code class="inline">append</code> num ciclo &nbsp; 3) Para filtrar/transformar: <code class="inline">nova=[]; for x in velha: if cond: nova.append(f(x))</code> &nbsp; 4) Para inverter sem <code class="inline">reverse()</code>: <code class="inline">lst[::-1]</code></div>
+  </div>
+</div>
+
+<!-- AULA 6 -->
+<div class="chapter" id="aula6">
+  <div class="ch-head">
+    <div class="ch-icon c6">📁</div>
+    <h2>Aula 6 — Ficheiros <span>Ler/escrever ficheiros, argumentos e exceções • Para o programa não morrer</span></h2>
+  </div>
+  <div class="ch-body">
+
+    <h4>Abrir e fechar — o padrão que tens de saber</h4>
+<pre><span class="c"># FORMA MODERNA (usa sempre esta - fecha sozinho):</span>
+<span class="k">with open</span>(<span class="s">"dados.txt"</span>, <span class="s">"r"</span>, <span class="k">encoding</span>=<span class="s">"utf-8"</span>) <span class="k">as</span> f:
+    <span class="k">for</span> linha <span class="k">in</span> f:
+        <span class="k">print</span>(linha.strip())   <span class="c"># strip tira \n</span>
+
+<span class="c"># Modos: "r"=ler, "w"=escrever (apaga!), "a"=adicionar ao fim</span>
+</pre>
+
+    <h4>Ler ficheiro — 4 formas</h4>
+    <table>
+      <tr><th>Método</th><th>O que faz</th><th>Quando usar</th></tr>
+      <tr><td><code class="inline">for linha in f:</code></td><td>linha a linha</td><td>✅ Preferida — eficiente</td></tr>
+      <tr><td><code class="inline">f.read()</code></td><td>tudo de uma vez (str)</td><td>Ficheiros pequenos</td></tr>
+      <tr><td><code class="inline">f.readline()</code></td><td>próxima linha</td><td>Enquanto houver: <code class="inline">while True: l=f.readline(); if l=="": break</code></td></tr>
+      <tr><td><code class="inline">f.read(10)</code></td><td>10 caracteres</td><td>Raro</td></tr>
+    </table>
+
+<pre><span class="c"># Exemplo completo: contar linhas com "a"</span>
+<span class="k">with open</span>(<span class="s">"palavras.txt"</span>) <span class="k">as</span> f:
+    cont = 0
+    <span class="k">for</span> linha <span class="k">in</span> f:
+        <span class="k">if</span> <span class="s">"a"</span> <span class="k">in</span> linha:
+            cont += 1
+<span class="k">print</span>(cont)
+</pre>
+
+    <h4>Escrever ficheiro</h4>
+<pre><span class="k">with open</span>(<span class="s">"saida.txt"</span>, <span class="s">"w"</span>) <span class="k">as</span> fout:
+    fout.write(<span class="s">"Olá\n"</span>)                          <span class="c"># write precisa de \n manual</span>
+    fout.write(<span class="s">f"Valor: {x}\n"</span>)
+    <span class="k">print</span>(<span class="s">"linha"</span>, <span class="k">file</span>=fout)               <span class="c"># alternativa com print</span>
+
+<span class="c"># Para números: converte!</span>
+fout.write(<span class="k">str</span>(42))                       <span class="c"># ou f"{42}"</span>
+</pre>
+    <div class="warn"><b>⚠️ "w" APAGA tudo.</b> Se queres adicionar sem apagar, usa <code class="inline">"a"</code>. E lembra-te do <code class="inline">\n</code>, senão fica tudo na mesma linha.</div>
+
+    <h4>Cursor — tell() e seek()</h4>
+<pre>f = <span class="k">open</span>(<span class="s">"ficheiro.txt"</span>)
+linha1 = f.readline()
+pos = f.tell()      <span class="c"># guarda posição</span>
+linha2 = f.readline()
+f.seek(pos)         <span class="c"># volta atrás</span>
+linha2_again = f.readline()  <span class="c"># igual a linha2</span>
+f.close()
+</pre>
+
+    <h4>Caminhos e diretórios (módulo os)</h4>
+<pre><span class="k">import</span> os
+os.getcwd()                    <span class="c"># onde estou?</span>
+os.path.abspath(<span class="s">"f.txt"</span>)       <span class="c"># caminho completo</span>
+os.path.exists(<span class="s">"f.txt"</span>)        <span class="c"># existe?</span>
+os.path.isfile(<span class="s">"f.txt"</span>)        <span class="c"># é ficheiro?</span>
+os.listdir(<span class="s">"."</span>)                <span class="c"># lista ficheiros da pasta</span>
+os.path.join(<span class="s">"pasta"</span>, <span class="s">"f.txt"</span>) <span class="c"># junta caminho (seguro)</span>
+
+<span class="c"># Percorrer árvore toda:</span>
+<span class="k">import</span> os
+<span class="k">for</span> root, dirs, files <span class="k">in</span> os.walk(<span class="s">"."</span>):
+    <span class="k">for</span> name <span class="k">in</span> files:
+        <span class="k">print</span>(os.path.join(root, name))
+</pre>
+
+    <h4>Argumentos da linha de comandos — sys.argv</h4>
+<pre><span class="k">import</span> sys
+<span class="c"># python3 programa.py arg1 arg2</span>
+<span class="k">print</span>(sys.argv)        <span class="c"># ["programa.py", "arg1", "arg2"]</span>
+<span class="k">print</span>(<span class="k">len</span>(sys.argv))   <span class="c"># 3</span>
+nome_ficheiro = sys.argv[1] <span class="c"># 1º argumento real (0 é o nome do programa)</span>
+</pre>
+    <div class="tip"><b>✅ No exame:</b> Se pedirem programa que recebe ficheiro por argumento, faz: <code class="inline">if len(sys.argv) < 2: print("Uso: python prog.py ficheiro"); sys.exit(1)</code></div>
+
+    <h4>Exceções — try / except (para não rebentar)</h4>
+<pre><span class="k">try</span>:
+    f = <span class="k">open</span>(<span class="s">"inexistente.txt"</span>)
+    texto = f.read()
+<span class="k">except</span> FileNotFoundError:
+    <span class="k">print</span>(<span class="s">"Ficheiro não existe!"</span>)
+<span class="k">except</span> IOError:
+    <span class="k">print</span>(<span class="s">"Erro de leitura"</span>)
+<span class="k">else</span>:
+    <span class="k">print</span>(<span class="s">"Lido com sucesso"</span>)
+    f.close()
+<span class="c"># Opcional: finally corre sempre</span>
+<span class="k">finally</span>:
+    <span class="k">print</span>(<span class="s">"Fim"</span>)
+</pre>
+
+<pre><span class="c"># Com detalhe do erro:</span>
+<span class="k">try</span>:
+    n = <span class="k">int</span>(<span class="s">"abc"</span>)
+<span class="k">except</span> ValueError <span class="k">as</span> e:
+    <span class="k">print</span>(<span class="s">"Erro:"</span>, e)
+
+<span class="c"># Levantar exceção tu próprio:</span>
+<span class="k">if</span> nivel &lt; 1:
+    <span class="k">raise</span> Exception(<span class="s">"nível inválido"</span>)
+</pre>
+
+    <h4>Assert — para testar</h4>
+<pre><span class="k">def</span> <span class="f">kelvin_para_f</span>(t):
+    <span class="k">assert</span> t &gt;= 0, <span class="s">"abaixo do zero absoluto!"</span>
+    <span class="k">return</span> ((t-273)*1.8)+32
+
+<span class="k">assert</span> hms2sec(1,0,0) == 3600  <span class="c"># teste automático: se falhar, rebenta</span>
+</pre>
+    <div class="blue"><b>💡 Quando usar:</b> <code class="inline">assert</code> para verificar que a tua função está correta durante o desenvolvimento. <code class="inline">try/except</code> para erros que o utilizador pode provocar (ficheiro não existe, input errado). No exame, se pedirem "valide", usa <code class="inline">assert</code> ou <code class="inline">if + raise</code>.</div>
+  </div>
+</div>
+
+<!-- DICAS FINAIS -->
+<div class="chapter" style="border:2px solid #0f172a">
+  <div class="ch-head" style="background:#0f172a; color:white; border:none">
+    <div class="ch-icon" style="background:white; color:#0f172a">🎯</div>
+    <h2 style="color:white">Plano de Ataque para o Exame <span style="color:#93c5fd">O que fazer quando vires o enunciado</span></h2>
+  </div>
+  <div class="ch-body">
+    <h4>Template universal — copia este esqueleto</h4>
+<pre><span class="k">import</span> sys, math  <span class="c"># só o que precisas</span>
+
+<span class="k">def</span> <span class="f">resolve</span>(param1, param2):   <span class="c"># 1) cria função pura (sem input/print)</span>
+    <span class="c"># ... lógica ...</span>
+    <span class="k">return</span> resultado
+
+<span class="k">def</span> <span class="f">main</span>():
+    <span class="c"># 2) lê inputs</span>
+    n = <span class="k">int</span>(<span class="k">input</span>(<span class="s">"N? "</span>))
+    <span class="c"># ou: ficheiro = sys.argv[1] se for por argumento</span>
+
+    <span class="c"># 3) chama função</span>
+    res = resolve(n)
+
+    <span class="c"># 4) mostra output</span>
+    <span class="k">print</span>(res)
+
+<span class="k">if</span> __name__ == <span class="s">"__main__"</span>:
+    main()
+</pre>
+
+    <h4>Checklist de 2 minutos antes de entregar</h4>
+    <ol class="steps">
+      <li><b>Testaste com 0, lista vazia [], string vazia "" e negativo?</b> São os casos que os professores usam para chumbar.</li>
+      <li><b>Todos os inputs têm conversão?</b> <code class="inline">int(input())</code> / <code class="inline">float(input())</code></li>
+      <li><b>Todos os prints estão lá?</b> Em script sem print não aparece nada.</li>
+      <li><b>Funções têm return?</b> Se só têm print, não podes reutilizar o valor.</li>
+      <li><b>Ciclos têm condição de paragem?</b> Garante que <code class="inline">while</code> vai acabar.</li>
+      <li><b>Ficheiros abertos com <code class="inline">with</code> e <code class="inline">encoding="utf-8"</code>?</b></li>
+    </ol>
+
+    <h4>Erros que valem zero — evita a todo o custo</h4>
+    <div class="grid2">
+      <div class="err" style="margin:0"><b>❌ Indentação errada</b><br>Python não perdoa. 4 espaços sempre. Se copias do PDF, reescreve.</div>
+      <div class="err" style="margin:0"><b>❌ = vs ==</b><br><code class="inline">if x = 5:</code> → SyntaxError. Sempre <code class="inline">==</code> para comparar.</div>
+      <div class="warn" style="margin:0"><b>⚠️ index out of range</b><br><code class="inline">lista[len(lista)]</code> → erro. Último é <code class="inline">len-1</code> ou <code class="inline">-1</code>.</div>
+      <div class="warn" style="margin:0"><b>⚠️ esquecer cópia</b><br><code class="inline">b = a</code> não copia lista. Usa <code class="inline">a[:]</code>.</div>
+    </div>
+
+    <h4>Como estudar hoje (método 3x30min)</h4>
+    <table>
+      <tr><th>Bloco</th><th>30 min</th><th>O que fazer</th></tr>
+      <tr><td><b>1</b></td><td>Aulas 1+2</td><td>Reescreve 3 ifs e 3 conversões de tipos sem olhar</td></tr>
+      <tr><td><b>2</b></td><td>Aulas 3+4</td><td>Cria 1 função com return + 1 for que soma lista + 1 while que valida input</td></tr>
+      <tr><td><b>3</b></td><td>Aulas 5+6</td><td>Faz slicing de cabeça + lê/escreve ficheiro com <code class="inline">with open</code></td></tr>
+    </table>
+    <div class="tip" style="margin-bottom:0"><b>🎁 Dica final:</b> No exame, se bloqueares, escreve em comentário em português o que queres fazer. Muitos professores dão pontos parciais por raciocínio, mesmo sem código perfeito. E usa <code class="inline">print()</code> para debug — podes apagar depois.</div>
+  </div>
+</div>
+
+<div class="footer">
+  <h3 style="color:white; margin-bottom:8px">Queres praticar com exercícios tipo exame?</h3>
+  <p style="font-size:13px; opacity:0.85; max-width:600px; margin:0 auto 16px">Este guia cobre 100% da teoria. O próximo passo é resolver 5 exercícios mistos (um de cada tema) em 60 minutos simulando exame.</p>
+  <a class="btn" href="#">📄 Imprimir / Guardar PDF (Ctrl+P)</a>
+  <a class="btn btn-dark" href="#">✏️ Gerar ficha de exercícios</a>
+  <p style="font-size:11px; opacity:0.6; margin-top:18px">Feito com base nas 6 aulas de Programação e Algoritmos em Ciência — UA (Osvaldo Pacheco, António Neves & João Rodrigues) • Resumo não oficial para estudo • v1.0 — 31/10/2026</p>
+</div>
+
+</div>
+</body>
+</html>
